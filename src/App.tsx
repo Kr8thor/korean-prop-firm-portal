@@ -8,6 +8,11 @@ import Footer from './components/Footer'
 // Lazy load pages for better performance
 const Home = lazy(() => import('./pages/Home'))
 const Compare = lazy(() => import('./pages/Compare'))
+const Rankings = lazy(() => import('./pages/Rankings'))
+const Strategies = lazy(() => import('./pages/Strategies'))
+const Simulator = lazy(() => import('./pages/Simulator'))
+const Promos = lazy(() => import('./pages/Promos'))
+const Replays = lazy(() => import('./pages/Replays'))
 
 // Loading component
 function LoadingSpinner() {
@@ -30,6 +35,16 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/compare" element={<Compare />} />
             <Route path="/비교" element={<Compare />} />
+            <Route path="/rankings" element={<Rankings />} />
+            <Route path="/순위" element={<Rankings />} />
+            <Route path="/strategies" element={<Strategies />} />
+            <Route path="/전략" element={<Strategies />} />
+            <Route path="/simulator" element={<Simulator />} />
+            <Route path="/시뮬레이터" element={<Simulator />} />
+            <Route path="/promos" element={<Promos />} />
+            <Route path="/할인" element={<Promos />} />
+            <Route path="/replays" element={<Replays />} />
+            <Route path="/리플레이" element={<Replays />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
