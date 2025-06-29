@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Korean SEO Meta Tags -->
+  <title>한국 최고의 프랍펌 정보 허브 | Korean Trader Hub</title>
+  <meta name="description" content="한국 트레이더를 위한 최강 프랍펌 정보 사이트. 실시간 비교, 할인 정보, 트레이딩 전략을 한 곳에서 확인하세요." />
+  <meta name="keywords" content="프랍펌, 선물거래, 트레이딩, 한국, prop firm, futures trading, korean trader" />
+  <meta name="author" content="Korean Trader Hub Team" />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="한국 최고의 프랍펌 정보 허브" />
+  <meta property="og:description" content="한국 트레이더를 위한 최강 프랍펌 정보 사이트" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:site_name" content="Korean Trader Hub" />
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="한국 최고의 프랍펌 정보 허브" />
+  <meta name="twitter:description" content="한국 트레이더를 위한 최강 프랍펌 정보 사이트" />
+  
+  <!-- Korean Font Optimization -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Pretendard Korean Font -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <!-- Noto Sans KR Fallback -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" />
+  
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#FFD700" />
+  
+  <!-- Performance Optimization -->
+  <link rel="dns-prefetch" href="//futurestradingwithkellyann.com" />
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+  
+  <style>
+    /* Critical CSS for Korean fonts */
+    * {
+      font-family: 'Pretendard', 'Noto Sans KR', 'Malgun Gothic', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    }
+    
+    /* Loading screen with Korean text */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out;
+    }
+    
+    #loading-screen.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .loading-text {
+      color: #FFD700;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      animation: pulse 2s infinite;
+    }
+    
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid #333333;
+      border-top: 3px solid #FFD700;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    /* Dark theme base */
+    body {
+      margin: 0;
+      background-color: #000000;
+      color: #ffffff;
+      font-feature-settings: "liga", "kern";
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">한국 트레이더 허브 로딩중...</div>
+  </div>
+  
+  <!-- Main App -->
+  <div id="root"></div>
+  
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', {
+      page_title: document.title,
+      page_location: window.location.href,
+      language: 'ko'
+    });
+  </script>
+  
+  <!-- App Script -->
+  <script type="module" src="/src/main.tsx"></script>
+  
+  <!-- Loading Screen Hide Script -->
+  <script>
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+          loadingScreen.classList.add('hidden');
+          setTimeout(() => loadingScreen.remove(), 500);
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
