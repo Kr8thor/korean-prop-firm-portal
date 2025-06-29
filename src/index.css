@@ -1,0 +1,300 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Korean-optimized base styles */
+@layer base {
+  html {
+    font-family: 'Pretendard', 'Noto Sans KR', 'Malgun Gothic', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-dark-bg text-white;
+    font-feature-settings: "liga", "kern", "calt";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    word-break: keep-all; /* Korean text optimization */
+    overflow-wrap: break-word;
+  }
+  
+  /* Korean text sizing adjustments */
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+    word-break: keep-all;
+  }
+  
+  p, span, div {
+    word-break: keep-all;
+    line-height: 1.6;
+  }
+  
+  /* Focus styles for accessibility */
+  *:focus {
+    @apply outline-none ring-2 ring-gold-primary ring-offset-2 ring-offset-dark-bg;
+  }
+}
+
+/* Korean UI Components */
+@layer components {
+  /* Button styles */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-gold-primary text-black font-semibold rounded-korean hover:bg-gold-secondary transition-all duration-200 focus:ring-2 focus:ring-gold-primary focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-dark-card text-white border border-gray-600 font-semibold rounded-korean hover:bg-gray-800 transition-all duration-200;
+  }
+  
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-4 py-2 text-gray-300 hover:text-white hover:bg-dark-card rounded-korean transition-all duration-200;
+  }
+  
+  /* Card styles */
+  .card {
+    @apply bg-dark-card border border-dark-border rounded-korean-lg p-6 shadow-korean;
+  }
+  
+  .card-hover {
+    @apply card hover:shadow-korean-lg hover:border-gold-primary/30 transition-all duration-300;
+  }
+  
+  /* Input styles */
+  .input {
+    @apply w-full px-4 py-3 bg-dark-card border border-gray-600 rounded-korean text-white placeholder-gray-400 focus:border-gold-primary focus:ring-1 focus:ring-gold-primary transition-colors;
+  }
+  
+  /* Korean table styles */
+  .table-korean {
+    @apply w-full border-collapse bg-dark-card rounded-korean-lg overflow-hidden;
+  }
+  
+  .table-korean th {
+    @apply bg-dark-bg px-4 py-3 text-left text-sm-ko font-semibold text-gray-300 border-b border-dark-border;
+  }
+  
+  .table-korean td {
+    @apply px-4 py-3 text-sm-ko border-b border-dark-border;
+  }
+  
+  .table-korean tr:hover {
+    @apply bg-dark-bg/50;
+  }
+  
+  /* Navigation styles */
+  .nav-link {
+    @apply text-gray-300 hover:text-gold-primary px-3 py-2 rounded-korean text-sm-ko font-medium transition-colors duration-200;
+  }
+  
+  .nav-link-active {
+    @apply nav-link text-gold-primary bg-dark-card;
+  }
+  
+  /* Filter panel */
+  .filter-panel {
+    @apply bg-dark-card border border-dark-border rounded-korean-lg p-6 space-y-4;
+  }
+  
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-korean text-xs-ko font-medium;
+  }
+  
+  .badge-success {
+    @apply badge bg-green-900 text-green-300;
+  }
+  
+  .badge-warning {
+    @apply badge bg-yellow-900 text-yellow-300;
+  }
+  
+  .badge-error {
+    @apply badge bg-red-900 text-red-300;
+  }
+  
+  .badge-gold {
+    @apply badge bg-gold-primary text-black;
+  }
+  
+  /* Comparison table */
+  .comparison-grid {
+    @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+  
+  .comparison-card {
+    @apply card-hover relative;
+  }
+  
+  .comparison-card.selected {
+    @apply border-gold-primary bg-gold-primary/5;
+  }
+  
+  /* Loading states */
+  .skeleton {
+    @apply animate-pulse bg-gray-700 rounded-korean;
+  }
+  
+  .spinner {
+    @apply w-6 h-6 border-2 border-gray-600 border-t-gold-primary rounded-full animate-spin;
+  }
+  
+  /* Korean typography utilities */
+  .text-korean-title {
+    @apply text-2xl-ko font-bold text-white;
+  }
+  
+  .text-korean-subtitle {
+    @apply text-lg-ko font-semibold text-gray-300;
+  }
+  
+  .text-korean-body {
+    @apply text-base-ko text-gray-300;
+  }
+  
+  .text-korean-caption {
+    @apply text-sm-ko text-gray-400;
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+  /* Glassmorphism effects */
+  .glass {
+    backdrop-filter: blur(16px);
+    background: rgba(26, 26, 26, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-gold {
+    backdrop-filter: blur(16px);
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+  }
+  
+  /* Scrollbar styles */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #4a5568 #1a1a1a;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #4a5568;
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #FFD700;
+  }
+  
+  /* Korean text utilities */
+  .break-keep {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  
+  .leading-korean {
+    line-height: 1.6;
+  }
+  
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+  
+  /* Grid utilities for Korean layout */
+  .grid-korean {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  
+  @media (max-width: 768px) {
+    .grid-korean {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    color: black !important;
+    background: white !important;
+  }
+  
+  .card {
+    border: 1px solid #ccc !important;
+    background: white !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .card {
+    border-width: 2px;
+  }
+  
+  .btn-primary {
+    border: 2px solid #000;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
